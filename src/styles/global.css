@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Short+Stack&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Paleta (claro) */
+  --background: #e8ebec; /* fundo claro */
+  --foreground: #00070b; /* texto principal */
+  --card: #ffffff; /* cards/popovers mais claros que o bg */
+  --card-foreground: #00070b;
+  --popover: #ffffff;
+  --popover-foreground: #00070b;
+
+  --primary: #27556c; /* ação/destaque */
+  --primary-foreground: #e8ebec;
+
+  --secondary: #03293b; /* botões/etiquetas secundários */
+  --secondary-foreground: #e8ebec;
+
+  --accent: #698b9c; /* detalhes, hovers */
+  --accent-foreground: #03293b;
+
+  --muted: #e8ebec; /* superfícies neutras */
+  --muted-foreground: #03293b;
+
+  --destructive: #b3261e; /* mantive um vermelho padrão de alerta */
+  --border: rgba(3, 41, 59, 0.18); /* #03293B com transparência */
+  --input: rgba(3, 41, 59, 0.18);
+  --ring: #27556c; /* foco */
+
+  /* cores de gráfico (derivadas da paleta) */
+  --chart-1: #27556c;
+  --chart-2: #698b9c;
+  --chart-3: #03293b;
+  --chart-4: #89a9b8; /* tom intermediário da família */
+  --chart-5: #0b1a22; /* bem escuro azulado */
+
+  /* sidebar (claro) */
+  --sidebar: #f5f7f8;
+  --sidebar-foreground: #03293b;
+  --sidebar-primary: #27556c;
+  --sidebar-primary-foreground: #e8ebec;
+  --sidebar-accent: #698b9c;
+  --sidebar-accent-foreground: #03293b;
+  --sidebar-border: rgba(3, 41, 59, 0.14);
+  --sidebar-ring: #27556c;
+}
+
+.dark {
+  /* Paleta (escuro) */
+  --background: #00070b; /* fundo escuro */
+  --foreground: #e8ebec; /* texto principal claro */
+
+  --card: #03293b; /* superfícies elevadas */
+  --card-foreground: #e8ebec;
+  --popover: #03293b;
+  --popover-foreground: #e8ebec;
+
+  --primary: #698b9c; /* ação/destaque em dark */
+  --primary-foreground: #03293b;
+
+  --secondary: #27556c;
+  --secondary-foreground: #e8ebec;
+
+  --accent: #e8ebec; /* detalhes claros */
+  --accent-foreground: #03293b;
+
+  --muted: #0b1a22;
+  --muted-foreground: #89a9b8;
+
+  --destructive: #e0443e;
+  --border: rgba(232, 235, 236, 0.12); /* borda sutil clara */
+  --input: rgba(232, 235, 236, 0.16);
+  --ring: #698b9c;
+
+  /* gráficos (escuro) */
+  --chart-1: #89a9b8;
+  --chart-2: #698b9c;
+  --chart-3: #27556c;
+  --chart-4: #e8ebec;
+  --chart-5: #03293b;
+
+  /* sidebar (escuro) */
+  --sidebar: #03293b;
+  --sidebar-foreground: #e8ebec;
+  --sidebar-primary: #698b9c;
+  --sidebar-primary-foreground: #03293b;
+  --sidebar-accent: #27556c;
+  --sidebar-accent-foreground: #e8ebec;
+  --sidebar-border: rgba(232, 235, 236, 0.1);
+  --sidebar-ring: #698b9c;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    font-family: "Short Stack", cursive;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

@@ -1,0 +1,71 @@
+---
+import "../styles/global.css";
+import { Highlighter } from "@/components/ui/highlighter";
+import CircularText from "@/components/CircularText";
+
+const { content } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.png" />
+    <title>{content.title}</title>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <div class="max-w-prose mx-auto px-5">
+      <header
+        class="flex align-middle justify-between gap-10 items-center my-5"
+      >
+        <a href="/home" class="flex h-25 items-center w-250">
+          <div class="flex flex-col justify-center h-full">
+            <p>Fiddelis</p>
+            <p class="text-accent w-60">Software Engineering Student</p>
+          </div>
+        </a>
+        <div>
+          <CircularText
+            text="FIDDELIS*BLOG*"
+            onHover="speedUp"
+            spinDuration={20}
+            client:load
+            className="text-accent"
+          />
+        </div>
+        <nav class="flex gap-10 text-lg w-250 justify-end">
+          <a href="/articles" class="group relative">
+            <span>/articles</span>
+
+            <span
+              class="absolute inset-0 opacity-0 group-hover:opacity-100 transition pointer-events-none"
+            >
+              <Highlighter action="underline" color="var(--ring)" client:load>
+                /articles
+              </Highlighter>
+            </span>
+          </a>
+
+          <a href="/about" class="group relative">
+            <span>/about</span>
+
+            <span
+              class="absolute inset-0 opacity-0 group-hover:opacity-100 transition pointer-events-none"
+            >
+              <Highlighter action="underline" color="var(--ring)" client:load>
+                /about
+              </Highlighter>
+            </span>
+          </a>
+        </nav>
+      </header>
+      <main>
+        <slot />
+      </main>
+
+      <footer class="my-10 text-center text-sm text-accent">
+        <p>© {new Date().getFullYear()} Fiddelis. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
